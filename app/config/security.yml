@@ -5,7 +5,23 @@ security:
     # http://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
         in_memory:
-            memory: ~
+            memory:
+                users:
+                    benef01:
+                        password:           benef01
+                        roles:              ROLE_BENEF
+                    as01:
+                        password:           as01
+                        roles:              ROLE_AS
+                    admin:
+                        password:           admin
+                        roles:              ROLE_ADMIN    
+        fos_userbundle:
+            id: fos_user.user_provider.username
+
+    encoders:
+        Symfony\Component\Security\Core\User\User: plaintext
+        FOS\UserBundle\Model\UserInterface: bcrypt
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
@@ -15,10 +31,31 @@ security:
 
         main:
             anonymous: ~
+            provider: in_memory
+            #stateless: true
             # activate different ways to authenticate
 
             # http://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
             #http_basic: ~
 
             # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
-            #form_login: ~
+            #form_login:
+            #    login_path: /login
+            #    check_path: /login
+            form_login:
+                provider: fos_userbundle
+                #csrf_provider: security.csrf.token_manager # Use form.csrf_provider instead for Symfony <2.4
+            logout:       true
+            anonymous:    true
+
+    access_control:
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/accueil_ben, roles: ROLE_BENEF }
+        - { path: ^/accueil_as, roles: ROLE_AS }
+        - { path: ^/, roles: ROLE_ADMIN }
+    role_hierarchy:
+        ROLE_ADMIN: ROLE_USER
+        ROLE_BENEF: ROLE_USER
+        ROLE_AS: ROLE_USER    

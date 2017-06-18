@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+
+<head>
+
+
+<title>Doc-Depot.com</title>
+<meta http-equiv=\ "Content-Type\" content=\
+	"text/html; charset=iso-8859-1\ " />
+</head>
+<body>
+	{% if error %}
+    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+<form action="{{ path('login') }}" method="post">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="_username" value="{{ last_username }}" />
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="_password" />
+
+    {#
+        If you want to control the URL the user
+        is redirected to on success (more details below)
+        <input type="hidden" name="_target_path" value="/account" />
+    #}
+
+    <button type="submit">login</button>
+</form>
+</body>
+</html>
