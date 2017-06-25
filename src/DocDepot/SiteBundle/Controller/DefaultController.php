@@ -3,9 +3,12 @@
 namespace DocDepot\SiteBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\Security;
+
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+
 
 class DefaultController extends Controller
 {
@@ -23,7 +26,8 @@ class DefaultController extends Controller
     */ 
     public function accueilBenAction(Request $request)
     {
-        return $this->render('DocDepotSiteBundle:Default:accueil_ben.html.twig', array('error' => null, 'last_username'=> null));
+        $lastUsername = $this->getUser()->getSurname();
+        return $this->render('DocDepotSiteBundle:Default:accueil_ben.html.twig', array('error' => null, 'last_username'=> $lastUsername));
     }
 
     /**
@@ -31,7 +35,9 @@ class DefaultController extends Controller
     */ 
     public function accueilAsAction(Request $request)
     {
-        return $this->render('DocDepotSiteBundle:Default:accueil_as.html.twig', array('error' => null, 'last_username'=> null));
+           $lastUsername = $this->getUser()->getFirstname();
+           $organisme = $this->getUser()->getOrganismeSocial()->getName();
+        return $this->render('DocDepotSiteBundle:Default:accueil_as.html.twig', array('error' => null, 'last_username'=> $lastUsername, 'organisme' => $organisme));
     }
 
 }

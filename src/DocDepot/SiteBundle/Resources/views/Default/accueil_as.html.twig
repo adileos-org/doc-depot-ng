@@ -5,6 +5,9 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 </head>
 <body>
-Accueil Acteur Social
+Accueil Acteur Social <br />
+Bienvenue {{ last_username }}  et à ton bureau dans {{ organisme }}
+
+<a href="{{ path('fos_user_security_logout') }}"> Logout </a>
 </body>
 </html>
