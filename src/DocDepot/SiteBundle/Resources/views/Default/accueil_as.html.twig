@@ -9,5 +9,12 @@ Accueil Acteur Social <br />
 Bienvenue {{ last_username }}  et à ton bureau dans {{ organisme }}
 
 <a href="{{ path('fos_user_security_logout') }}"> Logout </a>
+
+<div>liste des beneficiaire</div>
+	<ul>
+	{% for beneficiaire in beneficiaires %}
+		<li><div>{{ beneficiaire.username }}</div><div>{{ beneficiaire.surname }}</div><div>{{ beneficiaire.firstName }}</div><div>{{ beneficiaire.lastName }}</div><div>{{ beneficiaire.phoneNumber }}</div><div>{{ beneficiaire.country }}</div></li>
+	{% endfor %}
+	</ul>
 </body>
 </html>

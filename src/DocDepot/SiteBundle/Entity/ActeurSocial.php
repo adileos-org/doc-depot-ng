@@ -46,6 +46,12 @@ class ActeurSocial extends User
     */
     protected $organismeSocial;
 
+    protected $type = "as";
+    public function getType(){
+        return $this ->type;
+    }
+
+
         /**
      * Gets the first name.
      *

@@ -8,7 +8,7 @@ use Symfony\Component\Security\Core\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
-
+use DocDepot\SiteBundle\Entity\RelationConfianceRepository;
 
 class DefaultController extends Controller
 {
@@ -17,7 +17,14 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('DocDepotSiteBundle:Default:index.html.twig');
+        if($this->getUser()->getType() == "as"){
+            return $this->redirectToRoute("accueil_as");           
+        }
+        if($this->getUser()->getType() == "benef"){
+            return $this->redirectToRoute("accueil_ben");           
+        }
+       throw new \Exception("impossible de déterminer le type de personne");
+        
     }
 
 
@@ -37,7 +44,14 @@ class DefaultController extends Controller
     {
            $lastUsername = $this->getUser()->getFirstname();
            $organisme = $this->getUser()->getOrganismeSocial()->getName();
-        return $this->render('DocDepotSiteBundle:Default:accueil_as.html.twig', array('error' => null, 'last_username'=> $lastUsername, 'organisme' => $organisme));
+           
+           $repository = $this-> getDoctrine()-> getManager()->getRepository("DocDepotSiteBundle:RelationConfiance");
+           $entries = $repository->findByActeurSocial($this->getUser());
+           $beneficiaires = array();
+           foreach($entries as $entry){
+                $beneficiaires[] = $entry->getBeneficiaire();
+           }
+        return $this->render('DocDepotSiteBundle:Default:accueil_as.html.twig', array('error' => null, 'last_username'=> $lastUsername, 'organisme' => $organisme, 'beneficiaires' => $beneficiaires));
     }
 
 }

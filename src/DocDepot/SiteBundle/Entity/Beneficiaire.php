@@ -46,6 +46,14 @@ class Beneficiaire  extends User
      */
     protected $country;
 
+
+    protected $type = "benef";
+    public function getType(){
+        return $this ->type;
+    }
+
+
+
     /**
      * Gets the surname.
      *

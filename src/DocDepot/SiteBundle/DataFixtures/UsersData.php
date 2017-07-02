@@ -6,7 +6,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 use DocDepot\SiteBundle\Entity\ActeurSocial;
 use DocDepot\SiteBundle\Entity\Beneficiaire;
 use DocDepot\SiteBundle\Entity\OrganismeSocial;
-
+use DocDepot\SiteBundle\Entity\RelationConfiance;
 class UsersData implements FixtureInterface
 {
     /**
@@ -39,10 +39,40 @@ class UsersData implements FixtureInterface
         $benef01->setPlainPassword('benef01');
         $benef01->addRole('ROLE_BENEF');
         $benef01->setEnabled(true);
-
-        $benef01->setsurname('jojo');
-
+        $benef01->setSurname('jojo');
         $manager->persist($benef01);
+
+        $benef02 = new Beneficiaire();
+        $benef02->setUsername('benef02');
+        $benef02->setEmail('benef02@example.com');
+        $benef02->setPlainPassword('benef02');
+        $benef02->addRole('ROLE_BENEF');
+        $benef02->setEnabled(true);
+        $benef02->setSurname('gégé');
+        $manager->persist($benef02);
+
+
+        $benef03 = new Beneficiaire();
+        $benef03->setUsername('benef03');
+        $benef03->setEmail('benef03@example.com');
+        $benef03->setPlainPassword('benef03');
+        $benef03->addRole('ROLE_BENEF');
+        $benef03->setEnabled(true);
+        $benef03->setSurname('roro');
+        $manager->persist($benef03);
+
+
+        $rel01 = new RelationConfiance();
+        $rel01 -> setBeneficiaire($benef01);
+        $rel01 -> setActeurSocial($as01);
+        $rel01 -> setCreationDate(new \Datetime() );
+        $manager->persist($rel01);
+
+        $rel02 = new RelationConfiance();
+        $rel02 -> setBeneficiaire($benef02);
+        $rel02 -> setActeurSocial($as01);
+        $rel02 -> setCreationDate(new \Datetime() );
+        $manager->persist($rel02);
 
         $manager->flush();
     }

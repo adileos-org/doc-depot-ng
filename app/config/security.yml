@@ -32,7 +32,7 @@ security:
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/accueil_ben, roles: ROLE_BENEF }
         - { path: ^/accueil_as, roles: ROLE_AS }
-        - { path: ^/, roles: ROLE_ADMIN }
+        - { path: ^/, roles: ROLE_USER }
     role_hierarchy:
         ROLE_ADMIN: ROLE_USER
         ROLE_BENEF: ROLE_USER
