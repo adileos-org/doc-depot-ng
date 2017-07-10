@@ -3,6 +3,7 @@
 
 namespace DocDepot\SiteBundle\Entity;
 
+use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
 use DocDepot\SiteBundle\Entity\OrganismeSocial; 
 use DocDepot\SiteBundle\Entity\User; 
@@ -35,6 +36,7 @@ class RelationConfiance
 
     /**
      * @var \DateTime
+     * @Gedmo\Timestampable(on="create")
      * @ORM\Column(type="datetimetz")
      */
     protected $creationDate;

@@ -65,13 +65,11 @@ class UsersData implements FixtureInterface
         $rel01 = new RelationConfiance();
         $rel01 -> setBeneficiaire($benef01);
         $rel01 -> setActeurSocial($as01);
-        $rel01 -> setCreationDate(new \Datetime() );
         $manager->persist($rel01);
 
         $rel02 = new RelationConfiance();
         $rel02 -> setBeneficiaire($benef02);
         $rel02 -> setActeurSocial($as01);
-        $rel02 -> setCreationDate(new \Datetime() );
         $manager->persist($rel02);
 
         $manager->flush();
