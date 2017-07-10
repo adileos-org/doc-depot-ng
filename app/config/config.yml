@@ -84,3 +84,17 @@ stof_doctrine_extensions:
     orm:
         default:
             timestampable: true # not needed: listeners are not enabled by default
+knp_gaufrette:
+    adapters:
+        docdepot_adapter:
+            local:
+                directory: /var/docdepotfs/data
+                create: true
+    filesystems:
+        docdepot_fs:
+            adapter: docdepot_adapter             
+#        google_cloud_storage:
+#            service_id: 'app.google_cloud_storage.service'
+#            bucket_name: 'docdepot'
+#            options:
+#                directory: 'docdepot'

@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new DocDepot\SiteBundle\DocDepotSiteBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            new Knp\Bundle\GaufretteBundle\KnpGaufretteBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
