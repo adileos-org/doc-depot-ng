@@ -6,7 +6,7 @@
 </head>
 <body>
 Accueil Acteur Social <br />
-Bienvenue {{ last_username }}  et à ton bureau dans {{ organisme }}
+Bienvenue {{ last_username }}  et à ton bureau dans {{ organisme }}, ton identifiant est {{ curUser.id }}
 
 <a href="{{ path('fos_user_security_logout') }}"> Logout </a>
 

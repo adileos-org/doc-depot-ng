@@ -1,3 +1,7 @@
 acteur_socials:
     type:     rest
     resource: DocDepot\SiteBundle\Controller\ASController
+relation_confiances:
+    type:     rest
+    resource: DocDepot\SiteBundle\Controller\RelAsController
+    parent: acteur_socials
