@@ -8,3 +8,8 @@ doc_depot_site:
 #    type: annotation
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+doc_depot_api:
+    type: rest
+    prefix: /api
+    resource: "@DocDepotSiteBundle/Resources/config/as_routing.yml"

@@ -7,7 +7,8 @@
 ## prepare application
 
 ```shell
-composer update
+composer install
+chown -R www-data:www-data vendor
 ```
 ## load test data
 

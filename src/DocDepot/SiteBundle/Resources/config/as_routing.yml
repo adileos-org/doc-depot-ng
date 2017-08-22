@@ -1,0 +1,3 @@
+acteur_socials:
+    type:     rest
+    resource: DocDepot\SiteBundle\Controller\ASController
