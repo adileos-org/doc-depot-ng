@@ -46,7 +46,15 @@ class ActeurSocial extends User
     */
     protected $organismeSocial;
 
+
+    /**
+    * @ORM\Column(type="string", length=255, nullable=true, unique=false)
+    */
+    protected $address;
+
     protected $type = "as";
+
+
     public function getType(){
         return $this ->type;
     }
