@@ -51,7 +51,7 @@ class DefaultController extends Controller
            foreach($entries as $entry){
                 $beneficiaires[] = $entry->getBeneficiaire();
            }
-        return $this->render('DocDepotSiteBundle:Default:accueil_as.html.twig', array('error' => null, 'last_username'=> $lastUsername, 'organisme' => $organisme, 'beneficiaires' => $beneficiaires));
+        return $this->render('DocDepotSiteBundle:Default:accueil_as.html.twig', array('error' => null, 'last_username'=> $lastUsername, 'organisme' => $organisme, 'beneficiaires' => $beneficiaires, 'curUser' => $this->getUser()));
     }
 
 }

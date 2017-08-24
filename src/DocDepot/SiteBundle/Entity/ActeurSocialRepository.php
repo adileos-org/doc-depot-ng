@@ -17,6 +17,11 @@ class ActeurSocialRepository extends EntityRepository
 		$this->getEntityManager()->persist($acteurSocial);
 	}
 
+	public function remove(ActeurSocial $acteurSocial){
+		$em = $this->getEntityManager();
+		var_dump($em);
+		$em->remove($acteurSocial);
+	}
 
 	public function commit(){
 		$this->getEntityManager()->flush();
