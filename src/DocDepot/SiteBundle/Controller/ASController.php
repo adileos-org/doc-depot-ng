@@ -26,31 +26,32 @@ class ASController extends FOSRestController
         ;
     }
     
-    public function getActeursocialsAction()
+
+    public function listActeursocialsAction()
     {
         $as = $this->getRepository()->findAll();
         $view = $this->getDefaultView($as);   
         return $this->handleView($view);
-    } // "get_user_beneficiaires"   [GET] /acteursocials
+    } // "list_acteursocials"    [GET] /acteursocials/list
 
-    public function getActeursocialAction($idAs)
+    public function getActeursocialsAction($idAs)
     {
         $as = $this->getRepository()->findOneById($idAs);
         $view = $this->getDefaultView($as);   
         return $this->handleView($view);
-    } // "get_user_beneficiaire"    [GET] /acteursocials/{idAs}
+    } // "get_acteursocials"    [GET] /acteursocials/{idAs}
 
     public function deleteActeursocialAction($idAs)
     {
         $as = $this->getRepository()->remove($this->getRepository()->findOneById($idAs));
 
-    } // "delete_user_beneficiaire" [DELETE] /acteursocials/{idAs}
+    } // "delete_acteursocials" [DELETE] /acteursocials/{idAs}
 
     public function newActeursocialAction($idAs)
-    {} // "new_user_beneficiaires"   [GET] /acteursocials/{idAs}/new
+    {} // "new_acteursocials"   [GET] /acteursocials/{idAs}/new
 
-    public function editActeursocialAction($idAs, $idBenef)
-    {} // "edit_user_beneficiaire"   [GET] /acteursocials/{idAs}/edit
+    public function editActeursocialAction($idAs)
+    {} // "edit_acteursocials"   [GET] /acteursocials/{idAs}/edit
 
     public function removeActeursocialAction($idAs)
     {
