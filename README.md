@@ -19,4 +19,10 @@ php bin/console doctrine:fixtures:load --fixtures=src/DocDepot/SiteBundle/DataFi
 ```
 
 
+## autres taches
 
+pour ajouter un bundle
+
+```shell
+composer require namespace/nom_bundle
+```
