@@ -1,6 +1,6 @@
 <?php
 
-namespace DocDepot\SiteBundle\Controller;
+namespace DocDepot\ApiBundle\Controller;
 
 use FOS\RestBundle\Controller\FOSRestController;
 
