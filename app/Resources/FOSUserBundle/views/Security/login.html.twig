@@ -5,7 +5,7 @@
 <head>
 
 
-<title>Doc-Depot.com</title>
+<title>Doc-Depot.com Development</title>
 <meta http-equiv=\ "Content-Type\" content=\
 	"text/html; charset=iso-8859-1\ " />
 </head>
@@ -14,11 +14,11 @@
     <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
-<form action="{{ path('login') }}" method="post">
-    <label for="username">Username:</label>
+<form action="{{ path('fos_user_security_login') }}" method="post">
+    <label for="username">Nom d'utilisateur:</label>
     <input type="text" id="username" name="_username" value="{{ last_username }}" />
 
-    <label for="password">Password:</label>
+    <label for="password">Mot de passe:</label>
     <input type="password" id="password" name="_password" />
 
     {#
