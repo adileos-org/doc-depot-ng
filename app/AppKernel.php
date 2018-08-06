@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new Knp\Bundle\GaufretteBundle\KnpGaufretteBundle(),
             new FOS\RestBundle\FOSRestBundle(),
             new DocDepot\ApiBundle\DocDepotApiBundle(),
+            new DocDepot\FissaBundle\FissaBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
