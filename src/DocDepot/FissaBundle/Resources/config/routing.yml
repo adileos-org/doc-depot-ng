@@ -1,0 +1,3 @@
+fissa_homepage:
+    path:     /fissa
+    defaults: { _controller: FissaBundle:Default:index }
