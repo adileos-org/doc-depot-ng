@@ -1,3 +1,3 @@
 fissa_homepage:
-    path:     /
+    path:     /fissa
     defaults: { _controller: FissaBundle:Default:index }
